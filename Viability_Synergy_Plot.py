@@ -16,16 +16,19 @@ from mpl_toolkits.mplot3d import Axes3D
 Drug_X = 'Osimertinib'
 Drug_Y = 'Erdafitinib'
 Data_File = 'test.xlsx'
+colormap = 'BuGn'
 
 #import data
 df_Zr = pd.read_excel(Data_File, sheet_name = 'Zr', header = None)
 df_X = pd.read_excel(Data_File, sheet_name = 'X', header = None)
 df_Y = pd.read_excel(Data_File, sheet_name = 'Y', header = None)
 df_Zp = pd.read_excel(Data_File, sheet_name = 'Z_p', header = None)
+df_Zp_min = pd.read_excel(Data_File, sheet_name = 'Z_p_min', header = None)
 
-#3D Plot
-fig = plt.figure(figsize=(8,6))
-ax = fig.add_subplot(111, projection='3d')
+plt.figure(figsize=(10,6))
+
+#Add 3D subplot as first subplot
+ax = plt.subplot2grid((2,3), (0,0), colspan=2, rowspan=2, projection='3d')
 ax.w_xaxis.set_pane_color((1, 1, 1, 1))
 ax.w_yaxis.set_pane_color((1, 1, 1, 1))
 ax.w_zaxis.set_pane_color((1, 1, 1, 1))
@@ -50,28 +53,29 @@ zticks = mtick.FormatStrFormatter('%d%% ')
 ax.zaxis.set_major_formatter(zticks)
 ax.set_zlim(bottom = 0)
 ax.view_init(40, 45)
-ax.xaxis.set_ticks(range(1,7))
-ax.yaxis.set_ticks(range(1,6))
-ax.xaxis.set_ticklabels(['a','b','c','d','e','f'])
-ax.yaxis.set_ticklabels(['a','b','c','d','e'])
+ax.yaxis.set_ticks(range(1,7))
+ax.xaxis.set_ticks(range(1,6))
+ax.yaxis.set_ticklabels(['a','b','c','d','e','f'])
+ax.xaxis.set_ticklabels(['a','b','c','d','e'])
 
 #2D Plot
-fig2, axes = plt.subplots(nrows=1, ncols=2,figsize = (8,4))
-
-#Plot 2D subplots
-axes[0].contourf(df_Y, -df_X, df_Zr, 10, alpha=.75, cmap='Purples')
-axes[1].contourf(df_Y, -df_X, df_Zp, 10, alpha=.75, cmap='Purples')
+#Plot two 2D subplots
+ax2 = plt.subplot2grid((2,3),(0,2))
+ax2.contourf(df_X, -df_Y, df_Zr, 10, alpha=.75, cmap=colormap)
+ax3 = plt.subplot2grid((2,3),(1,2))
+ax3.contourf(df_X, -df_Y, df_Zp, 10, alpha=.75, cmap=colormap)
 
 #Format 2D subplots
-axes[0].set_title('Real Z')
-axes[1].set_title('Syndergy Z')
-axes[0].set_xlabel(Drug_X)
-axes[0].set_ylabel(Drug_Y)
-axes[1].set_xlabel(Drug_X)
-axes[1].set_ylabel(Drug_Y)
-axes[0].set_xticks(())
-axes[0].set_yticks(())
-axes[1].set_xticks(())
-axes[1].set_yticks(())
+ax2.set_title('Real Z')
+ax3.set_title('Synergy Z')
+ax2.set_xlabel(Drug_X)
+ax2.set_ylabel(Drug_Y)
+ax3.set_xlabel(Drug_X)
+ax3.set_ylabel(Drug_Y)
+ax2.set_xticks(())
+ax2.set_yticks(())
+ax3.set_xticks(())
+ax3.set_yticks(())
 
+plt.tight_layout()
 plt.show()
