@@ -13,8 +13,8 @@ import matplotlib.ticker as mtick
 from mpl_toolkits.mplot3d import Axes3D
 
 #Parameters
-Drug_X = 'Osimertinib'
-Drug_Y = 'Erdafitinib'
+Drug_X = 'Drug_A'
+Drug_Y = 'Drug_B'
 Data_File = 'test.xlsx'
 colormap = 'BuGn'
 
@@ -46,8 +46,8 @@ for a in range(0,df_Zr.shape[0]):
 			ax.plot([df_X.iloc[a,b], df_X.iloc[a,b]],[df_Y.iloc[a,b], df_Y.iloc[a,b]],[df_Zp.iloc[a,b], df_Zr.iloc[a,b]], color='#545cff')
 
 #Format 3D plot
-ax.set_xlabel(Drug_X + ' (μM)')
-ax.set_ylabel(Drug_Y + ' (μM)')
+ax.set_xlabel('log10[ ' + Drug_X +' ] (nM)')
+ax.set_ylabel('log10[ ' + Drug_Y +' ] (nM)')
 ax.set_zlabel('Viability')
 zticks = mtick.FormatStrFormatter('%d%% ')
 ax.zaxis.set_major_formatter(zticks)
@@ -55,8 +55,8 @@ ax.set_zlim(bottom = 0)
 ax.view_init(40, 45)
 ax.yaxis.set_ticks(range(1,7))
 ax.xaxis.set_ticks(range(1,6))
-ax.yaxis.set_ticklabels(['a','b','c','d','e','f'])
-ax.xaxis.set_ticklabels(['a','b','c','d','e'])
+#ax.yaxis.set_ticklabels(['a','b','c','d','e','f'])
+#ax.xaxis.set_ticklabels(['a','b','c','d','e'])
 
 #2D Plot
 #Plot two 2D subplots
