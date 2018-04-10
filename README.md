@@ -11,6 +11,7 @@
 Cells should be treated in a matrix of two drugs (Drug A and Drug B) at concentration gradient
 An example of 3\*3 concentration gradient:
 
+| | | |
 |-|-|-|
 |Drug A (conc_0) + Drug B (conc_0) | Drug A (conc_1) + Drug B (conc_0) | Drug A (conc_2) + Drug B (conc_0) |
 |Drug A (conc_0) + Drug B (conc_1) | Drug A (conc_1) + Drug B (conc_1) | Drug A (conc_2) + Drug B (conc_1) |
