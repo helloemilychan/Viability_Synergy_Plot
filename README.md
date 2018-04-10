@@ -11,7 +11,6 @@
 Cells should be treated in a matrix of two drugs (Drug A and Drug B) at concentration gradient
 An example of 3\*3 concentration gradient:
 
-| | | |
 |-|-|-|
 |Drug A (conc_0) + Drug B (conc_0) | Drug A (conc_1) + Drug B (conc_0) | Drug A (conc_2) + Drug B (conc_0) |
 |Drug A (conc_0) + Drug B (conc_1) | Drug A (conc_1) + Drug B (conc_1) | Drug A (conc_2) + Drug B (conc_1) |
@@ -35,3 +34,9 @@ If Drug A antagonizes with Drug B, then the scatter point will above wireframe. 
 ### 2D Plot
 Same method will be used to calcuate 2D contour of 'Synergy Z'.
 Comparasion between 'Read Z' and 'Synergy Z' can show synergy or antagonism. 
+
+## Plot Examples
+### Synergy Example
+![Synergy Example](https://github.com/helloemilychan/Viability_Synergy_Plot/blob/master/example/Synergy_example.png)
+### Antagonism Example
+![Antagonism Example](https://raw.githubusercontent.com/helloemilychan/Viability_Synergy_Plot/master/example/Antagonism_example.png)
