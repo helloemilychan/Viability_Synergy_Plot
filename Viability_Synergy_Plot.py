@@ -16,7 +16,7 @@ from mpl_toolkits.mplot3d import Axes3D
 Drug_X = 'Drug_A'
 Drug_Y = 'Drug_B'
 Data_File = 'test.xlsx'
-colormap = 'BuGn'
+colormap = 'GnBu'
 
 #import data
 df_Zr = pd.read_excel(Data_File, sheet_name = 'Zr', header = None)
@@ -41,9 +41,9 @@ ax.plot_wireframe(df_X, df_Y, df_Zp, color='#00b786')
 for a in range(0,df_Zr.shape[0]):
 	for b in range(0,df_Zr.shape[1]):
 		if df_Zp.iloc[a,b] > df_Zr.iloc[a,b]:
-			ax.plot([df_X.iloc[a,b], df_X.iloc[a,b]],[df_Y.iloc[a,b], df_Y.iloc[a,b]],[df_Zp.iloc[a,b], df_Zr.iloc[a,b]], color='#ff4242')
+			ax.plot([df_X.iloc[a,b], df_X.iloc[a,b]],[df_Y.iloc[a,b], df_Y.iloc[a,b]],[df_Zp.iloc[a,b], df_Zr.iloc[a,b]], color='#ff5e5e')
 		if df_Zp.iloc[a,b] < df_Zr.iloc[a,b]:
-			ax.plot([df_X.iloc[a,b], df_X.iloc[a,b]],[df_Y.iloc[a,b], df_Y.iloc[a,b]],[df_Zp.iloc[a,b], df_Zr.iloc[a,b]], color='#545cff')
+			ax.plot([df_X.iloc[a,b], df_X.iloc[a,b]],[df_Y.iloc[a,b], df_Y.iloc[a,b]],[df_Zp.iloc[a,b], df_Zr.iloc[a,b]], color='#767cfc')
 
 #Format 3D plot
 ax.set_xlabel('log10[ ' + Drug_X +' ] (nM)')
@@ -61,9 +61,9 @@ ax.xaxis.set_ticks(range(1,6))
 #2D Plot
 #Plot two 2D subplots
 ax2 = plt.subplot2grid((2,3),(0,2))
-ax2.contourf(df_X, -df_Y, df_Zr, 10, alpha=.75, cmap=colormap)
+ax2.contourf(df_X, -df_Y, df_Zr, 10, alpha = 0.8, cmap=colormap)
 ax3 = plt.subplot2grid((2,3),(1,2))
-ax3.contourf(df_X, -df_Y, df_Zp, 10, alpha=.75, cmap=colormap)
+ax3.contourf(df_X, -df_Y, df_Zp, 10, alpha = 0.8, cmap=colormap)
 
 #Format 2D subplots
 ax2.set_title('Real Z')

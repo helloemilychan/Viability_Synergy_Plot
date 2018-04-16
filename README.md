@@ -9,7 +9,8 @@
 ## Data Input
 ### Experimental Design
 Cells should be treated in a matrix of two drugs (Drug A and Drug B) at concentration gradient
-An example of 3\*3 concentration gradient:
+An example of 3\*3 concentration gradient :
+(In real experiment, a **8\*8** gradient is preferred)
 
 | | | |
 |-|-|-|
@@ -23,7 +24,7 @@ Viability data from the above matrix
 ## Data Processing
 ### 3D Plot
 The real viability data will be ploted as scatter.
-The predicted viability data will be calculated from the solely viability of Drug A and Drug B using Bliss method
+The predicted viability data will be calculated from the solely viability of Drug A and Drug B using *Bliss* method
 
 > Effects of combination (%) = Effects of Drug A (%) * (1 - Effects of Drug B (%))
 
